@@ -6,9 +6,10 @@ void imprimir(int v[], int n);
 void bubblueSort(int v[], int n);
 void selectionSort(int v[], int n);
 void insertionSort(int v[], int n);
+int buscaBinaria (int v[], int n, int chave);
 
 int main(){
-    int numeros[] = {5,3,8,2,1};
+    int numeros[] = {5,3,8,2,1}, alvo, resultado;
 
     printf("Vetor desordenado:\n");
     imprimir(numeros, MAX_QTD);
@@ -24,6 +25,16 @@ int main(){
     printf("\nInsection sort: \n");
     insertionSort(numeros, MAX_QTD);
     imprimir(numeros, MAX_QTD);
+
+    printf("\nDigite o número que deseja buscar: ");
+    scanf("%d", &alvo);
+    resultado = buscaBinaria(numeros, MAX_QTD, alvo);
+    
+    if(resultado != -1){
+        printf("Número encontrado na posição: %d", resultado);
+    } else {
+        printf("Número não encontrado!");
+    }
 
     return 0;
 }
@@ -68,7 +79,7 @@ void bubblueSort(int v[], int n){
     for(int i = 0; i < n - 1; i++){
         min = i;
 
-        for(int j = n + 1; j < n; j++){
+        for(int j = i + 1; j < n; j++){
             if(v[j] < v[min]){
                 min = j;
             }
@@ -86,7 +97,7 @@ void selectionSort(int v[], int n){
     for(int i = 0; i < n - 1; i++){
         min = i;
 
-        for(int j = n + 1; j < n; j++){
+        for(int j = i + 1; j < n; j++){
             if(v[j] < v[min]){
                 min = j;
             }
@@ -128,4 +139,40 @@ void insertionSort(int v[], int n){
 
         v[j + 1] = key;
     }
+}
+
+/*int buscaBinaria (int v[], int n, int chave) {
+    int inicio = 0, fim = n - 1;
+
+    while(inicio <= fim){
+        int meio = inicio + (fim - inicio) / 2;
+
+        if(v[meio] == chave){
+            return meio;
+        } else if(v[meio] > chave){
+            fim = meio - 1;
+        } else {
+            inicio = meio + 1;
+        }
+    }
+
+    return -1;
+}*/
+
+int buscaBinaria(int v[], int n, int chave){
+    int inicio = 0, fim = n - 1;
+
+    while(inicio <= fim){
+        int meio = inicio + (fim - inicio) / 2;
+
+        if(v[meio] == chave){
+            return meio;
+        } else if(v[meio] > chave){
+            fim = meio - 1;
+        } else {
+            inicio = meio + 1;
+        }
+    }
+
+    return -1;
 }
