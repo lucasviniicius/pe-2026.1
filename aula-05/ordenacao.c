@@ -45,6 +45,28 @@ void imprimir(int v[], int n){
     }
 }
 
+/*void insercaoOrdenada(int v[], int n, int x){
+    int pos = n;
+
+    while(pos > 0 && v[pos - 1] > x){
+        v[pos] = v[pos - 1];
+        pos--;
+    }
+
+    v[pos] = x;
+}*/
+
+void insercaoOrdenada(int v[], int n, int x){
+    int pos = n;
+
+    while(pos > 0 && v[pos - 1] > x){
+        v[pos] = v[pos - 1];
+        pos--;
+    }
+
+    v[pos] = x;
+}
+
 /*void bubblueSort(int v[], int n){
     int temp;
 
