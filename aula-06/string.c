@@ -21,7 +21,7 @@ void lerStr(char str[], int tamMax){
 
     int tam = strlen(str);
 
-    if(tam > 0 && str[tam - 1] != '\n'){
+    if(tam > 0 && str[tam - 1] == '\n'){
         str[tam - 1] = '\0';
     }
 }
