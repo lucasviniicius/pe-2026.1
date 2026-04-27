@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define TAM 5
+#define TAM 30
 
 struct Alunos{
     double nota1, nota2, media;
