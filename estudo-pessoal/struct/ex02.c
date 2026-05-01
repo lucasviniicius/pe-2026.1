@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// COMEÇAR NA QUESTAO 3
-
 struct Funcionario {
     char nome[50];
     char cargo[3];
@@ -26,6 +24,16 @@ struct Resultado {
     int indiceMenor;
 };
 
+struct Produtos {
+    int codigo;
+    char descricao[50];
+};
+
+struct Item {
+    int id;
+    int quantidade;
+};
+
 void lerStr(char str[], int tamMAX);
 /*void preencher(struct Funcionario *f, int tam);
 void imprimir(struct Funcionario *f, int tam);*/
@@ -33,10 +41,19 @@ void imprimir(struct Funcionario *f, int tam);*/
 /*void preencher(struct ContaBancaria *cf);
 void transferir(struct ContaBancaria *origem, struct ContaBancaria *destino, float quantia);*/
 
+/*void preencher(struct Aluno *a, int tam);
+struct Resultado buscarExtremos(struct Aluno a[], int tam);
+void alunoMaiorMenor(struct Aluno a[], int tam);*/
+
+/*void preencher(struct Produtos *p);
+void marcarComoEsgotado(struct Produtos *p);*/
+
+
 int main(){
     struct Funcionario funcionarios[3];
     struct ContaBancaria contaOrigem, contaDestino;
-    struct Aluno alunos[5];
+    struct Aluno alunos[3];
+    struct Produtos produto;
 
     /*preencher(funcionarios, QTD_FUNC);
     imprimir(funcionarios, QTD_FUNC);*/
@@ -46,6 +63,14 @@ int main(){
 
     printf("Conta de origem: %f\n", contaOrigem.saldo);
     printf("Conta de destino: %f", contaDestino.saldo);*/
+
+    /*preencher(alunos, 3);
+    alunoMaiorMenor(alunos, 3);*/
+
+    /*preencher(&produto);
+    printf("\nStatus atual: %s\n", produto.descricao);
+    marcarComoEsgotado(&produto);
+    printf("Novo status: %s\n", produto.descricao);*/
 
     return 0;
 }
@@ -101,4 +126,65 @@ void transferir(struct ContaBancaria *origem, struct ContaBancaria *destino, flo
         printf("Saldo insuficiente!");
         return;
     }
+}*/
+
+/*void preencher(struct Aluno *a, int tam){
+    float n1, n2;
+
+    for(int i = 0; i < tam; i++){
+        printf("Digite seu nome: ");
+        lerStr(a[i].nome, 50);
+        printf("Digite o número da matrícula: ");
+        scanf("%d", &a[i].matricula);
+        printf("Digite a nota da prova 1: ");
+        scanf("%f", &n1);
+        printf("Digite a nota da prova 2: ");
+        scanf("%f", &n2);
+        getchar();
+        a[i].media = (n1 + n2) / 2;
+    }
+}
+
+struct Resultado buscarExtremos(struct Aluno a[], int tam){
+    struct Resultado resp;
+
+    resp.indiceMaior = 0;
+    resp.indiceMenor = 0;
+
+    for(int i = 0; i < tam; i++){
+        if(a[i].media > a[resp.indiceMaior].media){
+            resp.indiceMaior = i;
+        } else if(a[i].media < a[resp.indiceMenor].media){
+            resp.indiceMenor = i;
+        }
+    }
+
+    return resp;
+}
+
+void alunoMaiorMenor(struct Aluno a[], int tam){
+    struct Resultado res = buscarExtremos(a, 3);
+
+    printf("Aluno com maior média: %s", a[res.indiceMaior].nome);
+    printf("Aluno com menor média: %s", a[res.indiceMenor].nome);
+}*/
+
+/*void preencher(struct Produtos *p){
+    printf("Digite o código do produto: ");
+    scanf("%d", &p->codigo);
+    getchar();
+    printf("Digite a descrição do produto: ");
+    lerStr(p->descricao, 50);
+}
+
+void marcarComoEsgotado(struct Produtos *p){
+    char texto[50] = "PRODUTO ESGOTADO!";
+    int i = 0;
+
+    while(texto[i] != '\0'){
+        p->descricao[i] = texto[i];
+        i++;
+    }
+
+    p->descricao[i] = '\0';
 }*/
