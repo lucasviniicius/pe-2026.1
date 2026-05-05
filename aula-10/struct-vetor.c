@@ -119,7 +119,7 @@ void blubbleSortNomes(struct Pessoa p[], int tam){
     while(troca == 1){
         troca = 0;
 
-        for(int i = 0; i <= fim; i++){
+        for(i = 0; i <= fim; i++){
             if(strcmp(p[i].nome, p[i + 1].nome) > 0){
                 aux = p[i];
                 p[i] = p[i + 1];
@@ -138,7 +138,7 @@ void insercaoDiretaPorNome(struct Pessoa v[], int tam) {
     int i, j;
     struct Pessoa aux;
 
-    for(int i = 1; i <= tam - 1; i++){
+    for(i = 1; i <= tam - 1; i++){
         aux = v[i];
         j = i - 1;
 
@@ -146,7 +146,7 @@ void insercaoDiretaPorNome(struct Pessoa v[], int tam) {
             v[j + 1] = v[j];
             j--;
         }
-
+    
         v[j + 1] = aux;
     }
 }
@@ -175,13 +175,13 @@ void insercaoDiretaPorIdadeDecrescNomeCresc(struct Pessoa v[], int tam) {
 
 
 void selecaoDiretaPorIdade(struct Pessoa v[], int tam) {
-    int menor;
+    int i, j, menor;
     struct Pessoa aux;
 
-    for(int i = 0; i < tam - 1; i++){
+    for(i = 0; i < tam - 1; i++){
         menor = i;
 
-        for(int j = i + 1; j <= tam - 1; j++){
+        for(j = i + 1; j <= tam - 1; j++){
             if(v[j].idade < v[menor].idade){
                 menor = j;
             }
@@ -189,6 +189,6 @@ void selecaoDiretaPorIdade(struct Pessoa v[], int tam) {
 
         aux = v[i];
         v[i] = v[menor];
-        v[menor] = aux;
+        v[menor] = v[i];
     }
 }
