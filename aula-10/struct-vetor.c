@@ -189,6 +189,6 @@ void selecaoDiretaPorIdade(struct Pessoa v[], int tam) {
 
         aux = v[i];
         v[i] = v[menor];
-        v[menor] = v[i];
+        v[menor] = aux;
     }
 }
